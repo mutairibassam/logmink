@@ -1,0 +1,58 @@
+version: '3.8'
+services:
+    
+    # mongodb container
+    mongo.logmink.hub:
+        image: mongo
+        container_name: mongo.logmink.hub
+        ports:
+            - 2717:27017
+        volumes:
+            - logmink_volume:/data/db
+        restart: always
+        environment:
+            - MONGO_INITDB_ROOT_USERNAME=
+            - MONGO_INITDB_ROOT_PASSWORD=
+        networks:
+          - logmink_network
+
+    # mongo-express container
+    express.logmink.hub:
+        image: mongo-express
+        container_name: express.logmink.hub
+        restart: always
+        ports:
+            - 8081:8081
+        environment:
+            - ME_CONFIG_MONGODB_ADMINUSERNAME=
+            - ME_CONFIG_MONGODB_ADMINPASSWORD=
+            - ME_CONFIG_MONGODB_SERVER=mongo.logmink.hub
+        depends_on:
+            - mongo.logmink.hub
+        networks:
+          - logmink_network
+
+    # node container
+    logmink.hub:
+        tty: true
+        # current project should have Dockerfile
+        build: .
+        ports:
+            - 32000:32000
+        volumes:
+            - .:/usr/src/app
+        environment:
+            PORT: 32000 
+            mongoUrl: mongodb://mongo.logmink.hub:27017/logdb-dev
+        depends_on:
+            - mongo.logmink.hub
+            - express.logmink.hub
+        networks:
+          - logmink_network
+
+volumes:
+    logmink_volume: {}
+
+networks:
+  logmink_network:
+    external: true
