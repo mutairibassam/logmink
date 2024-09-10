@@ -53,6 +53,7 @@ service_name: # recommended to start with agent ex; (agent.service_name)
 
 ```
 #### Details:
+*Note: You can modify `compose.yaml` file to change default password.*
 - mongo express (http://localhost:8081)
   - username (default): admin
   - password (default): pass
@@ -61,4 +62,4 @@ service_name: # recommended to start with agent ex; (agent.service_name)
   - service name (default): logmink.hub
   - service port (default): 32000
 
-Inspired by the need for simple, zero-code modification logging solutions.
+Please contribute.
