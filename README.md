@@ -49,8 +49,16 @@ service_name: # recommended to start with agent ex; (agent.service_name)
       PORT: 32000   # or any available port
       LOGMINK_HUB_URL: http://service_name
 
-      mongoUrl: mongodb://{service_name.hub}:27017/logdb
+      # database can be 1 huge database to store all logs
+      # or can segregated per app based on need.
+
+      # below example is one database for all dev env logs
       # ex;     mongodb://mongo.logmink.hub:27017/logdb-dev
+      
+      # below example is one database for each application
+      # ex;     mongodb://mongo.logmink.hub:27017/crmlogs-prod
+      # ex;     mongodb://mongo.logmink.hub:27017/portallogs-test
+      mongoUrl: mongodb://{service_name.hub}:27017/logdb
 
     entrypoint: ["node", "agent.js"]
 
