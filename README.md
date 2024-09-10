@@ -18,8 +18,11 @@
 #### Initial setup:
   ```bash
   # clone project repo
-  git clone https://github.com/yourusername/logmink.hub.git
+  git clone --recurse-submodules https://github.com/mutairibassam/logmink.hub.git
   cd logmink.hub
+
+  # pull latest changes from hub or agent repo (if needed)
+  # git submodule update --remote
 
   # ensure network name similar to is specified in the image (default is logmink_network)
   docker network create logmink_network
