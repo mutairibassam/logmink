@@ -18,8 +18,8 @@
 #### Initial setup:
   ```bash
   # clone project repo
-  git clone --recurse-submodules https://github.com/mutairibassam/logmink.hub.git
-  cd logmink.hub
+  git clone --recurse-submodules https://github.com/mutairibassam/logmink.git
+  cd logmink
 
   # pull latest changes from hub or agent repo (if needed)
   # git submodule update --remote
