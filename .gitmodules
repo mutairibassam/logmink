@@ -1,0 +1,6 @@
+[submodule "logmink-hub"]
+	path = logmink-hub
+	url = https://github.com/mutairibassam/logmink-hub.git
+[submodule "logmink-agent"]
+	path = logmink-agent
+	url = https://github.com/mutairibassam/logmink-agent.git
