@@ -24,10 +24,7 @@
   # pull latest changes from hub or agent repo (if needed)
   # git submodule update --remote
 
-  # ensure network name similar to is specified in the image (default is logmink_network)
-  docker network create logmink_network
-
-  # `make init` is going to build and run `Logmink.hub` container, then is going to build the `Logmink-agent` image only without running it since agents need to be attached to other containers as (sidecar) for listening.
+  # `make init` is going to build and run `Logmink.hub` container, then is going to only build the `Logmink-agent` image without running it since agents need to be attached to other containers as (sidecar) for listening.
   make init
   ```
 #### Attach agent:
