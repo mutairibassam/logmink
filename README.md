@@ -55,7 +55,7 @@ service_name: # recommended to start with agent ex; (agent.service_name)
       # below example is one database for each application
       # ex;     mongodb://mongo.logmink.hub:27017/crmlogs-prod
       # ex;     mongodb://mongo.logmink.hub:27017/portallogs-test
-      mongoUrl: mongodb://{service_name.hub}:27017/logdb
+      mongoUrl: mongodb://{service_name.hub}:27017/logdb-prod
 
     entrypoint: ["node", "agent.js"]
 
